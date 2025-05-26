@@ -3,8 +3,17 @@ const UserService = require("../services/userService")
 // reg
 const createUser = async (req , res) => {
     try{
-        const createdUser = await UserService.createUser(req.body)
-        res.status(201).json(createdUser)
+        const { user , token } = await UserService.createUser(req.body)
+        res.cookie("jwt" , token , {
+            httpOnly: true,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 14 * 24 * 60 * 60 * 1000
+        })
+        res.status(200).json({
+            success: true, 
+            user: {id: user.id, email: user.email}
+        })
     }
     catch(error){
         if(error.message.includes("User with this email already exists")){
@@ -28,8 +37,17 @@ const createUser = async (req , res) => {
 // log
 const loginUser = async(req , res) => {
     try{
-        const loginedUser = await UserService.loginUser(req.body)
-        res.status(201).json(loginedUser)
+        const { user , token } = await UserService.loginUser(req.body)
+        res.cookie("jwt" , token , {
+            httpOnly: true,
+            secure: true,
+            sameSite: "strict",
+            maxAge: 14 * 24 * 60 * 60 * 1000
+        })
+        res.status(200).json({
+            success: true, 
+            user: {id: user.id, email: user.email}
+        })
     }
     catch(error){
         if(error.message.includes("Email and password are required")){

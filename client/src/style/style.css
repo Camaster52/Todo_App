@@ -1,0 +1,154 @@
+@font-face {
+    font-family: "Luxury";
+    src: url("../assets/fonts/AnyConv.com__Inter-VariableFont_opsz\,wght.woff2") format("woff2") , 
+    url("../assets/fonts/AnyConv.com__Inter-VariableFont_opsz\,wght.woff") format("woff");
+    font-style: normal;
+}
+body{
+    font-family: "Luxury" , sans-serif;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-weight: 100;
+}
+
+
+
+
+
+
+
+
+.sign-side-wrapper > div , .log-side-wrapper > div{
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    box-sizing: border-box;
+    
+}
+.sign-container , .log-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+.sign-side , .log-side{
+    background: rgba(28, 28, 30, 0.9);
+    width: 30rem;
+    height: 45rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(146, 88, 88);
+    position: "relative",
+}
+.sign-side__title , .log-side__title{
+    display:flex;
+    margin-top: 2rem;
+}
+.sign-side__title-text , .log-side__title-text{
+    font-size: 2.5rem;
+    color: #956dd4;
+    letter-spacing: 0.2rem;
+}
+.sign-side__nav , .log-side__nav{
+    display:flex;
+    margin-bottom: -2rem;
+    margin-left: 15rem;
+    margin-top: 1rem;
+    gap: 1rem;
+    position: relative;
+    justify-content: space-around;
+    width: 100%; 
+}
+.sign-side__nav-button {
+    font-size: 1.1rem;
+    border: none;
+    background: none;
+    color: #eeab8c;
+    transition: all 0.3s ease-in-out;
+    margin-top: -5rem; 
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    text-align: center; 
+}
+.log-side__nav-button{
+    font-size: 1.1rem;
+    border: none;
+    background: none;
+    color: #eeab8c;
+    transition: all 0.3s ease-in-out;
+    margin-top: 2rem;
+    z-index: 1;
+    position: relative;
+    flex: 1;
+    
+}
+.sign-side__nav-button:hover , .log-side__nav-button:hover{
+    color: rgb(255, 0, 128);
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.sign-side__form , .log-side__form{
+    display: flex;
+    flex-direction: column;
+    margin-top: -1rem;
+}
+.sign-side__form-title {
+    font-size: 1.7rem;
+    margin-top: 4rem;
+    color: #956dd4;
+}
+.log-side__form-title{
+    font-size: 1.7rem;
+    color: #956dd4;
+    margin-top: 2.5rem;
+}
+.sign-side__form-input , .log-side__form-input{
+    height: 2.6rem;
+    width: 22rem;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.7s ease-in-out;
+}
+.sign-side__form-input:hover , .log-side__form-input:hover{
+    box-shadow: -3px 3px 10px rgb(209, 59, 223);
+    cursor: pointer;
+}
+.sign-side__form-input:focus , .log-side__form-input:focus{
+    border: solid 2px #7F00FF;
+    box-shadow: -10px 10px 30px rgb(59, 76, 223);
+    transform: translateX(20px);
+}
+.sign-side__form-button , .log-side__form-button{
+    font-size: 1.2rem;
+    margin-top: 5rem;
+    width: 10rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: none;
+    margin-left: 6.5rem;
+    background: linear-gradient(180deg, #6e0ece, #5f072c);
+    position: relative;
+    transition: all 0.4s ease-in-out;
+}
+.sign-side__form-button:hover , .log-side__form-button:hover{
+    box-shadow: 0 0 25px #2c24c2, 0 0 25px #787fb9;
+    transform: scale(1.08);
+    cursor: pointer;
+}
+.sign-side__form-button:active , .sign-side__form-button:active{
+    transform: scale(0.9);
+    box-shadow: 0 0 10px #4f46e5, 0 0 10px #818cf8;
+}
+.sign-side__nav-container {
+    position: relative;
+    width: 100%;
+}

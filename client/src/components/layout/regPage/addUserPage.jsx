@@ -1,0 +1,78 @@
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { motion } from "framer-motion";
+import Btn from "./btn";
+import CursorHighlight from "../CursorHighlight";
+import Signin from "../regForm/signin";
+import Login from "../regForm/login";
+
+const AddUserPage = () => {
+    const [activeTab, setActiveTab] = useState("signup");
+    
+    const flipAnimation = {
+        rotateY: activeTab === "login" ? 180 : 0,
+        transition: { duration: 0.6 }
+    };
+
+    return (
+        <div className="sign-container">
+        <CursorHighlight/>
+        <motion.div 
+            className="sign-3Danimate" 
+            style={{ perspective: "1000px" }}
+            initial={{ opacity: 0.2, y: -280 }}
+            animate={{ 
+                y: 0,
+                opacity: 1,
+                transition: { type: "spring", stiffness: 20 }
+            }}
+        >
+            <motion.div 
+            className="sign-side" 
+            animate={flipAnimation}
+            style={{ transformStyle: "preserve-3d" }}
+            >
+            <div style={{
+                backfaceVisibility: "hidden",
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                transform: "rotateY(0deg)",
+                visibility: activeTab === "signup" ? "visible" : "hidden"
+          }}>
+                <Btn activeTab={activeTab} setActiveTab={setActiveTab} />
+                <Signin/>
+            </div>
+
+        
+            <div style={{
+                backfaceVisibility: "hidden",
+                position: "absolute",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                transform: "rotateY(180deg)",
+                visibility: activeTab === "login" ? "visible" : "hidden"
+            }}>
+                <Btn activeTab={activeTab} setActiveTab={setActiveTab} />
+                <Login/>
+            </div>
+            </motion.div>
+        </motion.div>
+        </div>
+  );
+};
+
+export default AddUserPage;
+
+
+
+
+
