@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import Btn from "./btn";
 import CursorHighlight from "../CursorHighlight";
-import Signin from "../regForm/signin";
+import Signup from "../regForm/signin";
 import Login from "../regForm/login";
 
 const AddUserPage = () => {
@@ -20,11 +20,11 @@ const AddUserPage = () => {
         <motion.div 
             className="sign-3Danimate" 
             style={{ perspective: "1000px" }}
-            initial={{ opacity: 0.2, y: -280 }}
+            initial={{ opacity: 0, y: -300 }}
             animate={{ 
                 y: 0,
                 opacity: 1,
-                transition: { type: "spring", stiffness: 20 }
+                transition: { type: "spring", stiffness: 25 }
             }}
         >
             <motion.div 
@@ -45,7 +45,7 @@ const AddUserPage = () => {
                 visibility: activeTab === "signup" ? "visible" : "hidden"
           }}>
                 <Btn activeTab={activeTab} setActiveTab={setActiveTab} />
-                <Signin/>
+                <Signup/>
             </div>
 
         

@@ -25,6 +25,7 @@ const Btn = ({ activeTab, setActiveTab }) => {
         }}>
           {tabs.map(tab => (
             <button
+              className="nav_buttons"
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
