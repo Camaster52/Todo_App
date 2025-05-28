@@ -92,8 +92,7 @@ body{
     margin-top: 2rem;
     z-index: 1;
     position: relative;
-    flex: 1;
-    
+    flex: 1;  
 }
 .sign-side__nav-button:hover , .log-side__nav-button:hover{
     color: rgb(255, 0, 128);
@@ -199,4 +198,8 @@ body{
 .log-side__form-emailError{
     color: rgb(255, 30, 0);
     margin: 0.4rem 0 -0.5rem 0.2rem;
+}
+.sign-side__apiError{
+    color: rgb(255, 30, 0);
+    margin: -5px 0 0 0;
 }

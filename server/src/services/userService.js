@@ -20,7 +20,7 @@ class UserService {
             throw new Error("Email and password are required")
         }
         if(!email.includes("@")) {
-            throw new Error("Invalid email")
+            throw new Error("Invalid email format")
         }
         if(password.length < 8) {
             throw new Error("The password does not meet the requirements")
@@ -34,7 +34,7 @@ class UserService {
         try{
             const { rows } = await pool.query(`INSERT INTO users (email , password)
                 VALUES($1 , $2)
-                RETURNING id, email, created_at`,
+                RETURNING id, email`,
                 [email , hashedPassword]
             )
             const user = rows[0]
@@ -102,7 +102,7 @@ class UserService {
             )
         }
         catch(error){
-            throw new Error("Error generating token: " , error.message)
+            throw new Error("Error generating token: " + error.message)
         }
     }
 }

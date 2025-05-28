@@ -1,20 +1,37 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import LoginApi from "../api/loginApi";
+import { useNavigate } from 'react-router-dom';
 import React from "react";
 
 const Login = () => {
 
+    // const navigate = useNavigate()
+    const [serverErr , setServerErr] = useState()
+
     const { register, handleSubmit , watch , reset ,  formState: { errors } } = useForm({mode: "onChange"});
     const watchPassword = watch("password")
 
-    const onSubmit = (data) => {
-        console.log(data)
-        reset()
+    const onSubmit = async (data) => {
+        try{
+            setServerErr(null)
+            const result = await LoginApi(data)
+            if(result.success){
+                // navigate("/index")
+                console.log("Success log in")
+            }else{
+                setServerErr(result.message)
+            }
+            reset()
+        }catch(error){
+            setServerErr("An unexpected error occurred")
+        }
     }
 
     return(
         <>
             <h1 className="log-side__title-text">Log In</h1>
+            <p className="sign-side__apiError">{serverErr}</p>
             <form className="log-side__form" onSubmit={handleSubmit(onSubmit)}>
                 <label className="log-side__form-title">Email:</label>
                 <input name="email" className="log-side__form-input" type="email" {...register("email" , {   

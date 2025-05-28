@@ -1,18 +1,38 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import SignupApi from "../api/signupApi";
+import { useNavigate } from 'react-router-dom';
 import React from "react";
 
 const Signup = () => {
 
+    // const navigate = useNavigate()
+    const [serverErr , setServerErr] = useState(null)
+
     const { register, handleSubmit , reset , formState: {errors} } = useForm();
-    const onSubmit = (data) => {
-        console.log(data)
-        reset()
+    
+    const onSubmit = async (data) => {
+        try{
+            setServerErr(null)
+            const result = await SignupApi(data)
+            if(result.success){
+                // navigate("/index")
+                console.log("Success sign up")
+            }
+            else{
+                setServerErr(result.message)
+            }
+            reset()
+        }
+        catch(error){
+            setServerErr("An unexpected error occurred")
+        }
     }
 
     return(
         <>
             <h1 className="sign-side__title-text">Sign Up</h1>
+            <p className="sign-side__apiError">{serverErr}</p>
             <form className="sign-side__form" onSubmit={handleSubmit(onSubmit)}>
                 <label className="sign-side__form-title">Email:</label>
                 <input className="sign-side__form-input" type="email" {...register("email" , {

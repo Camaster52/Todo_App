@@ -1,8 +1,14 @@
 const express = require("express");
 const app = express()
 const { Pool } = require("pg")
-
+const cors = require("cors")
 require("dotenv").config()
+
+app.use(cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET" , "POST" , "PUT" , "DELETE"],
+    credentials: true,
+}))
 app.use(express.json())
 
 const SERVER_PORT = 8080
