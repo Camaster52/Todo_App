@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import Btn from "./btn";
@@ -6,7 +6,7 @@ import CursorHighlight from "../CursorHighlight";
 import Signup from "../authForm/signup";
 import Login from "../authForm/login";
 
-const AddUserPage = () => {
+const AddUserPage = ({setIsLoggedIn}) => {
     const [activeTab, setActiveTab] = useState("signup");
     
     const flipAnimation = {
@@ -45,7 +45,7 @@ const AddUserPage = () => {
                 visibility: activeTab === "signup" ? "visible" : "hidden"
           }}>
                 <Btn activeTab={activeTab} setActiveTab={setActiveTab} />
-                <Signup/>
+                <Signup setIsLoggedIn={setIsLoggedIn}/>
             </div>
 
         
@@ -62,7 +62,7 @@ const AddUserPage = () => {
                 visibility: activeTab === "login" ? "visible" : "hidden"
             }}>
                 <Btn activeTab={activeTab} setActiveTab={setActiveTab} />
-                <Login/>
+                <Login setIsLoggedIn={setIsLoggedIn}/>
             </div>
             </motion.div>
         </motion.div>

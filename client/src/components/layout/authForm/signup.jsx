@@ -4,7 +4,7 @@ import SignupApi from "../api/signupApi";
 import { useNavigate } from 'react-router-dom';
 import React from "react";
 
-const Signup = () => {
+const Signup = ({setIsLoggedIn}) => {
 
     const navigate = useNavigate()
     const [serverErr , setServerErr] = useState(null)
@@ -17,6 +17,7 @@ const Signup = () => {
             setServerErr("")
             const result = await SignupApi(data)
             if(result.success){
+                setIsLoggedIn(true)
                 navigate("/index" , {replace: true})
                 console.log("SUCCESS SIGN UP ")
             }else{

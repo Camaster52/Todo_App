@@ -1,8 +1,8 @@
 import AddUserPage from "../../components/layout/auth/addUserPage";
 
-const Auth = () => {
+const Auth = ({ setIsLoggedIn }) => {
     return(
-        <AddUserPage/>
+        <AddUserPage setIsLoggedIn={setIsLoggedIn}/>
     )
 }
 export default Auth
