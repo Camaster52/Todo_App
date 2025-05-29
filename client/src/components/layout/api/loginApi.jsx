@@ -3,9 +3,10 @@
 
 const LoginApi = async (userData) => {
     try{
+        console.log("Sending data:", userData)
         const response = await fetch("http://localhost:8080/api/login" , {
             method: "POST" , 
-            headers: {"Content-Type" : "application/json"},
+            headers: { "Content-Type" : "application/json" },
             body: JSON.stringify(userData),
             credentials: "include"
         })
@@ -13,28 +14,33 @@ const LoginApi = async (userData) => {
         const data = await response.json()
 
         if(!response.ok){
-            const serverError = data.message || "Unknown server error"
-            throw new Error(serverError)
+            console.error("Server error response: " , {
+                status: response.status,
+                message: data.error || "Unknown server error"
+            })
+            throw new Error(data.error)
         }
 
+        console.log("Success: " , data)
         return {
             success: true,
             user: data.user
         }
     }catch(error){
-        let err = "Registration failed. Please try again";
-        if(error.message.includes("Email and password are required")){
-            err = "Please fill in all fields";
-        }else if(error.message.includes("User not found")){
-            err = "User not found";
-        }else if(error.message.includes("Invalid password")){
-            err = "Invalid password";
-        }else if(error.message.includes("Invalid email format")){
-            err = "Invalid email format";
-        }
+        console.error("Fetch error: ", error);
+        const errorMessages = {
+            "Invalid password": "Invalid password",
+            "Email and password are required": "Please fill in all fields",
+            "Invalid email format": "Please enter a valid email address",
+            "User not found": "User not found",
+            "Database error": "Database error. Please try later"
+        };
+
+        const resultError = errorMessages[error.message] || "Login failed. Please try again"
+
         return {
             success: false,
-            message: err
+            message: resultError
         }
     }
 }

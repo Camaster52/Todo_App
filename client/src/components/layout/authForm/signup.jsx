@@ -6,25 +6,25 @@ import React from "react";
 
 const Signup = () => {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const [serverErr , setServerErr] = useState(null)
 
     const { register, handleSubmit , reset , formState: {errors} } = useForm();
+
     
     const onSubmit = async (data) => {
         try{
-            setServerErr(null)
+            setServerErr("")
             const result = await SignupApi(data)
             if(result.success){
-                // navigate("/index")
-                console.log("Success sign up")
-            }
-            else{
+                navigate("/index" , {replace: true})
+                console.log("SUCCESS SIGN UP ")
+            }else{
                 setServerErr(result.message)
             }
             reset()
-        }
-        catch(error){
+        }catch(error){
+            console.error("Error in submit: " , error)
             setServerErr("An unexpected error occurred")
         }
     }
@@ -32,7 +32,7 @@ const Signup = () => {
     return(
         <>
             <h1 className="sign-side__title-text">Sign Up</h1>
-            <p className="sign-side__apiError">{serverErr}</p>
+            { serverErr && <p className="sign-side__apiError">{serverErr}</p>}
             <form className="sign-side__form" onSubmit={handleSubmit(onSubmit)}>
                 <label className="sign-side__form-title">Email:</label>
                 <input className="sign-side__form-input" type="email" {...register("email" , {

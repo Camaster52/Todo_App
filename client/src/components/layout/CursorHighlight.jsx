@@ -2,7 +2,7 @@ import { motion, useMotionValue } from "framer-motion";
 import { useEffect, useState } from "react";
 
 const CursorHighlight = () => {
-    const size = 45
+    const size = 50
     const x = useMotionValue(0)
     const y = useMotionValue(0)
 
@@ -29,7 +29,7 @@ const CursorHighlight = () => {
             x,
             y,
             zIndex: 10,
-            filter: "blur(25px)"
+            filter: "blur(30px)"
         }}
         animate={{
             scale: [1, 1.2, 1],

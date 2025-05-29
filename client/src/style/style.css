@@ -108,7 +108,7 @@ body{
 .log-side__form{
     display: flex;
     flex-direction: column;
-    margin-top: -3rem;
+    margin-top: -0.6rem;
 }
 .sign-side__form-title {
     font-size: 1.7rem;

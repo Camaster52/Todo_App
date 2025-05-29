@@ -1,4 +1,4 @@
-const pool = require("../server")
+const { pool } = require("../DatabaseConnection/db.js")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
@@ -29,7 +29,7 @@ class UserService {
             throw new Error("User with this email already exists")
         }
         // 
-        const hashedPassword = await bcrypt.hash(password , 10)
+        const hashedPassword = await bcrypt.hash(password , 12)
         //
         try{
             const { rows } = await pool.query(`INSERT INTO users (email , password)
@@ -42,7 +42,8 @@ class UserService {
             return { user , token }
         }
         catch(error){
-            throw new Error(`Database error: , ${error.message}`)
+            console.log("Database sign up error" , error)
+            throw new Error(error)
         }
     }
 
@@ -74,14 +75,9 @@ class UserService {
             throw new Error("Invalid email format")
         }
 
-        try{
-            const user = await this.isUserLogin(email , password)
-            const token = await this.generateToken(user)
-            return { user , token }
-        }
-        catch(error) {
-            throw new Error(`Database error: , ${error.message} `)
-        }
+        const user = await this.isUserLogin(email, password);
+        const token = await this.generateToken(user);
+        return { user, token };
     }
 
 
@@ -102,6 +98,7 @@ class UserService {
             )
         }
         catch(error){
+            console.log("JWT error: " , error)
             throw new Error("Error generating token: " + error.message)
         }
     }
