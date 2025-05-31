@@ -1,8 +1,14 @@
-import { color } from "framer-motion"
+import CursorHighlight from "../../components/layout/CursorHighlight"
+import Header from "../../components/layout/index/header"
+import Main from "../../components/layout/index/main"
 
 const Index = () => {
     return(
-        <h1 style={{color: "white"}}>INDEX</h1>
+        <>
+            <CursorHighlight/>
+            <Header/>
+            <Main/>
+        </>
     )
 }
 export default Index

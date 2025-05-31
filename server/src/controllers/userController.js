@@ -1,4 +1,6 @@
 const UserService = require("../services/userService")
+const jwt = require("jsonwebtoken")
+require("dotenv").config()
 
 // reg
 const createUser = async (req , res) => {
@@ -38,6 +40,8 @@ const createUser = async (req , res) => {
     }
 }
 
+
+
 // log
 const loginUser = async(req , res) => {
     try{
@@ -70,7 +74,31 @@ const loginUser = async(req , res) => {
         }
     }
 }
+
+
+
+const checkJWT= (req , res) => {
+    const token = req.cookies.jwt
+
+    if(!token){
+        const tokenError = "Token not found"
+        console.error(tokenError)
+        return (
+            res.status(401).json({message: tokenError})
+        )
+    }
+
+    try{
+        const decoded = jwt.verify(token , process.env.JWT_SECRET)
+        console.log("Success  JWT verification")
+        res.status(200).json({success: true , result: decoded})
+    }catch(error){
+        console.error("JWT verification error: " , error)
+        res.status(401).json({success: false , message: error.message})
+    }
+}
 module.exports = {
     createUser,
-    loginUser
+    loginUser,
+    checkJWT
 }

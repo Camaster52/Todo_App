@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "Luxury";
+    src: url("../assets/fonts/AnyConv.com__Montserrat-VariableFont_wght.woff2") format("woff2") , 
+    url("../assets/fonts/AnyConv.com__Montserrat-VariableFont_wght.woff2") format("woff");
+    font-style: normal;
+}
+body{
+    font-family: "Luxury" , sans-serif;
+    background-color: #111111;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-weight: 100;
+}
+
+
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -1rem;
+    width: 100%;
+    height: 7rem;
+    background-color: #200817;
+}
+.header__menuSvg{
+    width: 4rem;
+    height: 4rem;
+    margin-left: 2rem;
+    transition: all 0.3 ease-in-out;
+}
+.header__menuSvg:hover{
+    transform: scale(1.2);
+}
+.header__title{
+    color: rgb(255, 255, 255);
+    font-size: 3rem;
+}
+.header__exit{
+    width: 3rem;
+    height: 3rem;
+    margin-right: 2rem;
+    transition: all 0.3 ease;
+}
+.header__exit:hover{
+    transform: scale(1.2);
+}
