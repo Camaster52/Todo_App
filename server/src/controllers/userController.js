@@ -97,8 +97,29 @@ const checkJWT= (req , res) => {
         res.status(401).json({success: false , message: error.message})
     }
 }
+
+
+
+const logout = (req , res) => {
+    try{
+        res.clearCookie("jwt" , {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production', 
+            sameSite: 'strict', 
+            path: '/', 
+        })
+        res.status(200).json({success: true , message: 'Logged out successfully' })
+    }catch(error){
+        console.error('Logout error:', error)
+        res.status(500).json({ 
+            success: false,
+            message: 'Internal server error' 
+        });
+    }
+}
 module.exports = {
     createUser,
     loginUser,
-    checkJWT
+    checkJWT,
+    logout
 }

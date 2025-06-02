@@ -1,13 +1,15 @@
 import CursorHighlight from "../../components/layout/CursorHighlight"
 import Header from "../../components/layout/index/header"
 import Main from "../../components/layout/index/main"
+import Footer from "../../components/layout/index/footer"
 
-const Index = () => {
+const Index = ({ setIsLoggedIn }) => {
     return(
         <>
             <CursorHighlight/>
-            <Header/>
+            <Header setIsLoggedIn={setIsLoggedIn}/>
             <Main/>
+            <Footer/>
         </>
     )
 }

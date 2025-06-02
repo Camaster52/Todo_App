@@ -1,19 +1,3 @@
-@font-face {
-    font-family: "Luxury";
-    src: url("../assets/fonts/AnyConv.com__Montserrat-VariableFont_wght.woff2") format("woff2") , 
-    url("../assets/fonts/AnyConv.com__Montserrat-VariableFont_wght.woff2") format("woff");
-    font-style: normal;
-}
-body{
-    font-family: "Luxury" , sans-serif;
-    background-color: #111111;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    font-weight: 100;
-}
-
-
 
 
 .header{
@@ -29,13 +13,6 @@ body{
     width: 4rem;
     height: 4rem;
 }
-.header__svgButton:hover{
-    transform: scale(1.3);
-    cursor: pointer;
-}
-.header__svgButton:active{
-    transform: scale(0.8);
-}
 .header__title{
     margin-top: 3rem;
     color: rgb(255, 255, 255);
@@ -45,18 +22,18 @@ body{
     width: 3rem;
     height: 3rem;
 }
-.header__svgButton:hover{
+.header__svgButtonMenu:hover , .header__svgButtonExit:hover{
     transform: scale(1.3);
     cursor: pointer;
 }
-.header__svgButton:active{
+.header__svgButtonMenu:active , .header__svgButtonExit:active{
     transform: scale(0.8);
 }
-.header__svgButtonMenu{
+.header__svgButtonMenu {
     background: none;
     border: none;
     margin-top: 1rem;
-    margin-right: 2rem;
+    margin-left: 2rem;
     transition: all 0.3s ease;
 }
 .header__svgButtonExit{
@@ -65,4 +42,91 @@ body{
     margin-top: 1rem;
     margin-right: 2rem;
     transition: all 0.3s ease;
+}
+
+.header__openTasks{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    width: 25rem;
+    height: 100%;
+    background-color: #000000;
+}
+.header__openTasksContTitle{
+    display: flex;
+    justify-content: center;
+}
+.header__openTasksContTitle-title{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 1.8rem;
+    letter-spacing: 0.4rem;
+}
+.header__closeTasks{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    width: 2rem;
+    height: 2rem;
+    font-size: 4rem;
+    border: none;
+    background: none;
+    margin-right: 0rem;
+    transition: all 0.3s ease-in-out;
+    margin-left: 22rem;
+    margin-top: 1rem;
+}
+.header__closeTasks:hover{
+    color:rgb(168, 59, 8);
+    transform: scale(1.3);
+}
+.header__closeTasks:active{
+    transform: scale(0.85);
+}
+
+
+
+
+
+.footer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10rem;
+    color: #fff;
+    font-size: 1rem;
+    text-align: center;
+} 
+.line{
+    width: 100%;
+    border: solid 0.1px rgb(121, 121, 121);
+    opacity: 0.7;
+}
+.footer__copyright{
+    margin-bottom: 0.5rem;
+}
+.footer__myGitHub{
+    margin-bottom: 0.7rem;
+}
+.footer__link{
+    display: inline-block; 
+    transform-origin: left center;
+    text-decoration: none;
+    color: rgb(140, 0, 255);
+    transition: all 0.3s ease-in-out;
+}
+.footer__link:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+.footer__link:active{
+    transform: scale(0.9);
 }

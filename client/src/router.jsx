@@ -47,7 +47,7 @@ const Router = () => {
             <Routes>
                 <Route path = "/" element = { isLoggedIn ? <Navigate to= "/index" replace/> : <Navigate to= "/auth" replace/>}/>
                 <Route  path = "/auth" element = { isLoggedIn ? <Navigate to = "/index" replace/> : <Auth setIsLoggedIn={setIsLoggedIn}/> }/>
-                <Route path = "/index" element = { isLoggedIn ? <Index/> : <Navigate to="/auth" replace/>}/>
+                <Route path = "/index" element = { isLoggedIn ? <Index setIsLoggedIn={setIsLoggedIn}/> : <Navigate to="/auth" replace/>}/>
             </Routes>
         </BrowserRouter>
     )
