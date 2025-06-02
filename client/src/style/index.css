@@ -25,25 +25,44 @@ body{
     height: 7rem;
     background-color: #200817;
 }
-.header__menuSvg{
+.header__svgButton-menu{
     width: 4rem;
     height: 4rem;
-    margin-left: 2rem;
-    transition: all 0.3 ease-in-out;
 }
-.header__menuSvg:hover{
-    transform: scale(1.2);
+.header__svgButton:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+.header__svgButton:active{
+    transform: scale(0.8);
 }
 .header__title{
+    margin-top: 3rem;
     color: rgb(255, 255, 255);
     font-size: 3rem;
 }
-.header__exit{
+.header__svgButton-exit{
     width: 3rem;
     height: 3rem;
-    margin-right: 2rem;
-    transition: all 0.3 ease;
 }
-.header__exit:hover{
-    transform: scale(1.2);
+.header__svgButton:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+}
+.header__svgButton:active{
+    transform: scale(0.8);
+}
+.header__svgButtonMenu{
+    background: none;
+    border: none;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    transition: all 0.3s ease;
+}
+.header__svgButtonExit{
+    background: none;
+    border: none;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    transition: all 0.3s ease;
 }
