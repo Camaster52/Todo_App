@@ -36,14 +36,53 @@ const Footer = () => {
     const overlayAnimation = {
         hidden: { opacity: 0 },
         visible: { opacity: 1 }
-    };
+    }
+    const footerItems = [
+        { id: 1, content: (
+            <p className="footer__copyright">
+                © 2025 Todo App by <span className="footer__copyright-name">Filin Gleb</span>
+            </p>
+        )},
+        { id: 2, content: (
+            <p className="footer__myGitHub">
+                My GitHub <a className="footer__link" href="https://github.com/Camaster52" target="_blank">Camaster52</a>
+            </p>
+        )},
+        { id: 3, content: (
+            <button 
+                onClick={() => setIsOpenModal(true)} 
+                className="footer__support"
+            >
+                Feedback
+            </button>
+        )}
+    ];
+    const footerItemsAnimation = {
+        hidden: {
+            y: 130,
+            opacity: 0
+        },
+        visible: (i) => ({
+            y: 0,
+            opacity: 1,
+            transition: {type: "spring" , damping: 10, stiffness: 50 , delay: i * 0.5}
+        })
+    }
     return(
         <>
             <motion.footer variants = {footerAnimation} initial = "hidden" animate = "visible"  className="footer">
                 <div className="line"></div>
-                <p className="footer__copyright">© 2025 Todo App by <span className="footer__copyright-name">Filin Gleb</span></p>
-                <p className="footer__myGitHub">My GitHub <a className="footer__link" href="https://github.com/Camaster52" target="_blank">Camaster52</a></p>
-                <button onClick={() => {setIsOpenModal(true)}} className="footer__support">Feedback</button>
+                {footerItems.map((item, index) => (
+                    <motion.div
+                        key={item.id}
+                        custom={index}  
+                        variants={footerItemsAnimation}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        {item.content}
+                    </motion.div>
+                ))}
             </motion.footer>
 
             <AnimatePresence>
