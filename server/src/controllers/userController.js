@@ -1,5 +1,6 @@
 const UserService = require("../services/userService")
 const jwt = require("jsonwebtoken")
+const nodemailer = require("nodemailer")
 require("dotenv").config()
 
 // reg
@@ -117,9 +118,42 @@ const logout = (req , res) => {
         });
     }
 }
+
+
+
+const feedback = async (req , res) => {
+
+    const { problem , name } = req.body
+
+    const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASSWORD,
+        }
+    })
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER,
+        to: process.env.EMAIL_USER,
+        subject: 'feedback',
+        text: problem
+    }
+
+    try{
+        await transporter.sendMail(mailOptions)
+        res.status(200).json({ success: true })
+    }catch(error){
+        console.log("feedback error: " , error)
+        res.status(500).json({ success: false , message: error.message })
+    }
+}
+
+
 module.exports = {
     createUser,
     loginUser,
     checkJWT,
-    logout
+    logout,
+    feedback
 }

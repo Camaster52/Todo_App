@@ -4,7 +4,7 @@ import LogOut from "../api/logOut.jsx"
 import { useNavigate } from 'react-router-dom';
 import { motion , AnimatePresence } from "framer-motion"
 
-const Header = ({ setIsLoggedIn }) => {
+const Header = ({ setIsLoggedIn , tasks , setTasks }) => {
 
     const navigate = useNavigate()
 
@@ -74,8 +74,16 @@ const Header = ({ setIsLoggedIn }) => {
                         <div className="header__openTasksContTitle">
                             <p className="header__openTasksContTitle-title">Tasks</p>
                         </div>
-                        <div>
-                            
+                        <div className="header__tasks">
+                            {tasks.map(task => (
+                                <div key={task.id} className="header__tasks-task">
+                                    <p className="header__tasks-text">{task.text}</p>
+                                    <div className="header__tasks-actionBtn">
+                                        <button className="header__tasks-delete">Delete</button>
+                                        <button className="header__tasks-change">Change</button>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </motion.div>
                 )}
