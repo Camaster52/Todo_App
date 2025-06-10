@@ -6,9 +6,11 @@ const Main = ({handleAddTask , onShowTaskForm , handleCancelTask , isTaskFormOpe
     const [inputValue, setInputValue] = useState("")
     const isInputEmpty = !inputValue.trim()
 
-    const handleSubmit = () => {
-        handleAddTask(inputValue)
-        setInputValue("")
+    const handleSubmit = async () => {
+        const { success } = await handleAddTask(inputValue)
+        if (success) {
+            setInputValue("")
+        }
     }
     
     const taskAnimation = {

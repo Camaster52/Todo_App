@@ -21,6 +21,8 @@ const LoginApi = async (userData) => {
             throw new Error(data.error)
         }
 
+        localStorage.setItem("userID" , data.user.id)
+
         console.log("Success: " , data)
         return {
             success: true,

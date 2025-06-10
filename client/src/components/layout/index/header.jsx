@@ -4,7 +4,7 @@ import LogOut from "../api/logOut.jsx"
 import { useNavigate } from 'react-router-dom';
 import { motion , AnimatePresence } from "framer-motion"
 
-const Header = ({ setIsLoggedIn , tasks , setTasks }) => {
+const Header = ({ setIsLoggedIn , tasks , setTasks , deleteTask }) => {
 
     const navigate = useNavigate()
 
@@ -59,6 +59,11 @@ const Header = ({ setIsLoggedIn , tasks , setTasks }) => {
 
     const [isOpen , setIsOpen] = useState(false)
 
+    const delTask = (id , text) => {
+        setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
+        deleteTask(text)
+    }
+
     return(
         <div className="main-content">
 
@@ -74,17 +79,22 @@ const Header = ({ setIsLoggedIn , tasks , setTasks }) => {
                         <div className="header__openTasksContTitle">
                             <p className="header__openTasksContTitle-title">Tasks</p>
                         </div>
+
                         <div className="header__tasks">
-                            {tasks.map(task => (
-                                <div key={task.id} className="header__tasks-task">
-                                    <p className="header__tasks-text">{task.text}</p>
-                                    <div className="header__tasks-actionBtn">
-                                        <button className="header__tasks-delete">Delete</button>
-                                        <button className="header__tasks-change">Change</button>
+                            {tasks.map((task , index ) => (
+                                <>
+                                <p className="header__tasks-id">Task: {index + 1}</p>
+                                    <div key={task.id} className="header__tasks-task">
+                                        <p className="header__tasks-text">{task.text}</p>
+                                        <div className="header__tasks-actionBtn">
+                                            <button onClick={() => delTask(task.id , task.text)} className="header__tasks-delete">Delete</button>
+                                            <button className="header__tasks-change">Change</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </>
                             ))}
-                        </div>
+                        </div>   
+                                         
                     </motion.div>
                 )}
             </AnimatePresence>

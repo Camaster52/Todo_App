@@ -83,6 +83,45 @@ class UserService {
 
 
 
+    async createTask( { text , userID } ) {
+        try{
+            const { rows } = await pool.query(`INSERT INTO userTasks (user_id , text)
+                VALUES($1 , $2)
+                RETURNING *`,
+            [userID , text])
+
+            return { success: true , result: rows[0] }
+        }catch(error){
+            console.error("Database error: " , error)
+            throw new Error("Create task error: " + error.message)
+        }
+    }
+
+
+
+    async getTasks(userID){
+        try{
+            const result = await pool.query("SELECT * FROM userTasks WHERE user_id = $1 " , [userID])
+            return result.rows
+        }catch(error){
+            console.error("Database error: " , error)
+            throw new Error("Get tasks error: " + error.message)
+        }
+    }
+
+
+
+    async deleteTask(text , userID){
+        try{
+            const result = await pool.query("" , [])
+            return result.rows
+        }catch(error){
+            console.error("Database error: " , error)
+            throw new Error("Delete task error: " + error.message)
+        }
+    }
+
+
     //generateToken for all
     async generateToken(user) {
         try{

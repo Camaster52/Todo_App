@@ -1,9 +1,9 @@
 const UserService = require("../services/userService")
 const jwt = require("jsonwebtoken")
 const nodemailer = require("nodemailer")
+const userService = require("../services/userService")
 require("dotenv").config()
 
-// reg
 const createUser = async (req , res) => {
     try{
         console.log("Front data: " , req.body)
@@ -43,7 +43,6 @@ const createUser = async (req , res) => {
 
 
 
-// log
 const loginUser = async(req , res) => {
     try{
         console.log("Front data: " , req.body)
@@ -150,10 +149,48 @@ const feedback = async (req , res) => {
 }
 
 
+
+
+const createTask = async (req , res) => {
+    try{
+        const { success , result } = await UserService.createTask(req.body)
+        res.status(200).json({success: true , result: result})
+    }catch(error){
+        res.status(500).json({success: false , error: error.message})
+    }
+}
+
+
+
+const getTasks = async (req , res) => {
+    try{
+        const { userID } = req.query
+        const result = await UserService.getTasks(userID)
+        res.status(200).json({success: true , result: result})
+    }catch(error){
+        res.status(500).json({success: false , error: error.message})
+    }
+}
+
+
+
+const deleteTask = async (req , res) => {
+    try{
+        const {success , result} = await userService.deleteTask(req.body)
+        res.status(200).json({success: true , result: result})
+    }catch(error){
+        res.status(500).json({success: false , error: error.message})
+    }
+}
+
+
 module.exports = {
     createUser,
     loginUser,
     checkJWT,
     logout,
-    feedback
+    feedback,
+    createTask,
+    getTasks,
+    deleteTask
 }

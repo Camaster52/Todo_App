@@ -2,7 +2,7 @@ import CursorHighlight from "../../components/layout/CursorHighlight"
 import Header from "../../components/layout/index/header"
 import Main from "../../components/layout/index/main"
 import Footer from "../../components/layout/index/footer"
-import { useState } from "react"
+import { useState , useEffect } from "react"
 
 const Index = ({ setIsLoggedIn }) => {
 
@@ -16,18 +16,93 @@ const Index = ({ setIsLoggedIn }) => {
         setIsTaskFormOpen(false)
     }
 
-    let id = 0
-    const handleAddTask = (taskText) => {
+    const handleAddTask = async (taskText) => {
         if (!taskText.trim()) return
-        setIsTaskFormOpen(false)
+        const userID = localStorage.getItem("userID")
+        if (!userID) {
+            console.error("User ID not found in localStorage");
+            return 
+        }
 
-        const newTask = {id: ++id , text: taskText}
-        setTasks([...tasks , newTask])
+        try{
+            const response = await fetch("http://localhost:8080/api/createTask" , {
+                method: "POST" , 
+                headers: { 'Content-Type': 'application/json' } , 
+                body: JSON.stringify( { text: taskText , userID: userID } )
+            })
 
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
 
-
-
+            const result = await response.json()
+            console.log("Success: " , result)
+            setTasks(prevTasks => [...prevTasks, {
+                id: result.id || Date.now(), 
+                text: taskText
+            }])
+            
+            setIsTaskFormOpen(false)
+            return {success: true}
+        }catch(error){
+            console.error("Error saving tasks: ", error)
+            return {success: false}
+        }
     }
+
+    
+    const deleteTask = async (text) => {
+        const userID = localStorage.getItem("userID")
+        try{
+            const response = await fetch("http://localhost:8080/api/deleteTask" , {
+                method: "POST" , 
+                headers: { 'Content-Type': 'application/json' } , 
+                body: JSON.stringify( { text: text , userID: userID } )
+            })
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+            const result = await response.json()
+            console.log("Success: " , result)
+            return {success: true}
+        }catch(error){
+            console.error("Delete task error: ", error)
+            return {success: false}
+        }
+        
+    }
+
+    // const fetchTasks = async () => {
+    //     setIsLoadingTasks(true)
+    //     const userID = localStorage.getItem("userID")
+    //     if (!userID) {
+    //         setIsLoadingTasks(false)
+    //         return
+    //     }
+    //     try{
+    //         const response = await fetch(`http://localhost:8080/api/getTasks?userID=${userID}`)
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`)
+    //         }
+    //         const { success, tasks, error } = await response.json()
+    //         setTasks(tasks)
+
+    //         if (success) {
+    //             setTasks(tasks)
+    //         } else {
+    //             console.error("Server error:", error)
+    //         }
+    //     }catch(error){
+    //         console.error("Error fetching tasks: ", error)
+    //     }finally {
+    //         setIsLoadingTasks(false);
+    //     }
+    // }
+    // useEffect(() => {
+    //     fetchTasks()
+    // }, [])
 
     return(
         <>
@@ -37,6 +112,7 @@ const Index = ({ setIsLoggedIn }) => {
                 setTasks={setTasks} 
                 tasks={tasks} 
                 setIsLoggedIn={setIsLoggedIn}
+                deleteTask={deleteTask}
             />
 
             <Main 

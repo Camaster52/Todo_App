@@ -108,6 +108,10 @@
     border: solid 1px rgb(255, 255, 255);
     border-radius: 0.5rem;
 }
+.header__tasks-id{
+    color: white;
+    margin-bottom: -1vw;
+}
 .header__tasks-text{
     color: #fff;
     font-size: 1rem;
@@ -144,7 +148,14 @@
 .header__tasks-change:active , .header__tasks-delete:active{
     transform: scale(0.9);
 }
-
+.loading-spinner{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
+.no-tasks-message{
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+}
 
 
 
