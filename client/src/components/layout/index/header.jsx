@@ -59,9 +59,11 @@ const Header = ({ setIsLoggedIn , tasks , setTasks , deleteTask }) => {
 
     const [isOpen , setIsOpen] = useState(false)
 
-    const delTask = (id , text) => {
-        setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
-        deleteTask(text)
+    const delTask = async (id , text) => {
+        const response = await deleteTask(text)
+        if(response.success){
+            setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
+        }
     }
 
     return(
@@ -88,7 +90,6 @@ const Header = ({ setIsLoggedIn , tasks , setTasks , deleteTask }) => {
                                         <p className="header__tasks-text">{task.text}</p>
                                         <div className="header__tasks-actionBtn">
                                             <button onClick={() => delTask(task.id , task.text)} className="header__tasks-delete">Delete</button>
-                                            <button className="header__tasks-change">Change</button>
                                         </div>
                                     </div>
                                 </>

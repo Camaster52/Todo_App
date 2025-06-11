@@ -7,8 +7,8 @@ import { useState , useEffect } from "react"
 const Index = ({ setIsLoggedIn }) => {
 
     const [tasks , setTasks] = useState([])
-
     const [isTaskFormOpen , setIsTaskFormOpen] = useState(false)
+
     const onShowTaskForm = () => {
         setIsTaskFormOpen(true)
     }
@@ -23,7 +23,6 @@ const Index = ({ setIsLoggedIn }) => {
             console.error("User ID not found in localStorage");
             return 
         }
-
         try{
             const response = await fetch("http://localhost:8080/api/createTask" , {
                 method: "POST" , 
@@ -36,7 +35,7 @@ const Index = ({ setIsLoggedIn }) => {
             }
 
             const result = await response.json()
-            console.log("Success: " , result)
+            console.info("Success add: " , result)
             setTasks(prevTasks => [...prevTasks, {
                 id: result.id || Date.now(), 
                 text: taskText
@@ -65,44 +64,38 @@ const Index = ({ setIsLoggedIn }) => {
             }
 
             const result = await response.json()
-            console.log("Success: " , result)
+            console.info("Success delete: " , result)
             return {success: true}
         }catch(error){
             console.error("Delete task error: ", error)
             return {success: false}
         }
-        
     }
 
-    // const fetchTasks = async () => {
-    //     setIsLoadingTasks(true)
-    //     const userID = localStorage.getItem("userID")
-    //     if (!userID) {
-    //         setIsLoadingTasks(false)
-    //         return
-    //     }
-    //     try{
-    //         const response = await fetch(`http://localhost:8080/api/getTasks?userID=${userID}`)
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`)
-    //         }
-    //         const { success, tasks, error } = await response.json()
-    //         setTasks(tasks)
 
-    //         if (success) {
-    //             setTasks(tasks)
-    //         } else {
-    //             console.error("Server error:", error)
-    //         }
-    //     }catch(error){
-    //         console.error("Error fetching tasks: ", error)
-    //     }finally {
-    //         setIsLoadingTasks(false);
-    //     }
-    // }
-    // useEffect(() => {
-    //     fetchTasks()
-    // }, [])
+    const fetchTasks = async () => {
+        const userID = localStorage.getItem("userID")
+        if (!userID) {
+            console.error("User ID not found")
+            return
+        }
+        try {
+            const response = await fetch(`http://localhost:8080/api/getTasks?userID=${userID}`)
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
+
+            const data = await response.json()
+            if (data.success) {
+                setTasks(data.result)
+            }
+        } catch (error) {
+            console.error("Error fetching tasks:", error)
+        }
+    };
+    useEffect(() => {
+        fetchTasks()
+    }, []);
 
     return(
         <>

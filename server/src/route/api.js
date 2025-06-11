@@ -12,6 +12,6 @@ router.post("/feedback" , userController.feedback)
 // tasks
 router.post("/createTask" , userController.createTask)
 router.get("/getTasks" , userController.getTasks)
-router.get("/deleteTasks" , userController.deleteTask)
+router.post("/deleteTask" , userController.deleteTask)
 
 module.exports = router

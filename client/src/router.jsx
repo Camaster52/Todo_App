@@ -20,7 +20,6 @@ const Router = () => {
 
                 if(!response.ok){
                     setIsLoggedIn(false)
-                    console.error("Invalid token: " , data.message)
                     throw new Error(data.message)
                 }
                 if(response.ok){
@@ -33,7 +32,7 @@ const Router = () => {
                 })
             }catch(error){
                 setIsLoggedIn(false)
-                console.error("Token error: " , error.message)
+                console.info("Token error: " , error.message)
                 return({
                     success: false
                 })

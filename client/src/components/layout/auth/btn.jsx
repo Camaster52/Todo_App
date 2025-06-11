@@ -31,7 +31,7 @@ const Btn = ({ activeTab, setActiveTab }) => {
               style={{
                 background: 'none',
                 border: 'none',
-                color: activeTab === tab.id ? '#7F00FF' : '#eeab8c',
+                color: activeTab === tab.id ? '#7F00FF' : '#ffffff',
                 fontSize: '1.1rem',
                 padding: '10px',
                 flex: 1,

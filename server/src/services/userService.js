@@ -101,7 +101,7 @@ class UserService {
 
     async getTasks(userID){
         try{
-            const result = await pool.query("SELECT * FROM userTasks WHERE user_id = $1 " , [userID])
+            const result = await pool.query("SELECT text FROM userTasks WHERE user_id = $1 " , [userID])
             return result.rows
         }catch(error){
             console.error("Database error: " , error)
@@ -113,8 +113,8 @@ class UserService {
 
     async deleteTask(text , userID){
         try{
-            const result = await pool.query("" , [])
-            return result.rows
+            const result = await pool.query(`DELETE FROM userTasks WHERE text = $1 AND user_id = $2` , [ text , userID ])
+            return {success: true}
         }catch(error){
             console.error("Database error: " , error)
             throw new Error("Delete task error: " + error.message)

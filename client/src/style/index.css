@@ -133,15 +133,6 @@
     border-radius: 0.5rem;
     transition: all 0.3s ease-in-out;
 }
-.header__tasks-change{
-    background-color: rgb(115, 255, 0);
-    color: rgb(255, 255, 255);
-    border: none;
-    width: 4vw;
-    height: 1.5rem;
-    border-radius: 0.5rem;
-    transition: all 0.3s ease-in-out;
-}
 .header__tasks-change:hover , .header__tasks-delete:hover{
     transform: scale(1.1);
 }
