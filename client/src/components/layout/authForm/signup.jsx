@@ -35,31 +35,38 @@ const Signup = ({setIsLoggedIn}) => {
             <h1 className="sign-side__title-text">Sign Up</h1>
             { serverErr && <p className="sign-side__apiError">{serverErr}</p>}
             <form className="sign-side__form" onSubmit={handleSubmit(onSubmit)}>
-                <label className="sign-side__form-title">Email:</label>
-                <input className="sign-side__form-input" type="email" {...register("email" , {
-                    required: "This field is required",
-                    pattern: {
-                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                        message: "Invalid email address"
-                    }
-                })} />
-                {errors.email && <p className="log-side__form-emailError">{errors.email.message}</p>}
-                
-                <label className="sign-side__form-title">Password:</label>
-                <input className="sign-side__form-input" type="password" {...register("password" , {
-                    required: "This field is required",
-                    minLength: {
-                        value: 8,
-                        message: "Password is too short"
-                    },
-                    maxLength: {
-                        value: 128,
-                        message: "Password is too long"
-                    }
-                })}/>
-                {errors.password && <p className="log-side__form-emailError">{errors.password.message}</p>}
 
-                <button className="sign-side__form-button" type="submit">Create Account</button>
+                <div className="sign-side__form-content">
+                    <label className="sign-side__form-title">Email:</label>
+                    <input className="sign-side__form-input" type="email" {...register("email" , {
+                        required: "This field is required",
+                        pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "Invalid email address"
+                        }
+                    })} />
+                    {errors.email && <p className="log-side__form-emailError">{errors.email.message}</p>}
+                </div>
+
+                <div className="sign-side__form-content">
+                    <label className="sign-side__form-title">Password:</label>
+                    <input className="sign-side__form-input" type="password" {...register("password" , {
+                        required: "This field is required",
+                        minLength: {
+                            value: 8,
+                            message: "Password is too short"
+                        },
+                        maxLength: {
+                            value: 128,
+                            message: "Password is too long"
+                        }
+                    })}/>
+                    {errors.password && <p className="log-side__form-emailError">{errors.password.message}</p>}
+                </div>
+
+                <div className="sign-side__form-btnCont">
+                    <button className="sign-side__form-button" type="submit">Create Account</button>
+                </div>
             </form>
         </>
     )

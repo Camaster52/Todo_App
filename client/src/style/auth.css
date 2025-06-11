@@ -45,9 +45,11 @@ body {
 }
 .sign-side , .log-side{
     background: #242323;
-    width: 26vw;
-    height: 75vh;
-    border-radius: 3rem;
+    width: 20vw;
+    height: 65vh;
+    min-width: 210px;
+    min-height: 330px;
+    border-radius: 1rem;
     position: relative;
 }
 .sign-side__title , .log-side__title{
@@ -55,22 +57,20 @@ body {
     margin-top: 2rem;
 }
 .sign-side__title-text , .log-side__title-text{
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: rgb(241, 216, 255);
     letter-spacing: 0.2rem;
 }
 .sign-side__nav , .log-side__nav{
     display:flex;
-    margin-bottom: -2rem;
     margin-left: 15rem;
-    margin-top: 1rem;
     gap: 1rem;
     position: relative;
     justify-content: space-around;
     width: 100%; 
 }
 .sign-side__nav-button {
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: none;
     background: none;
     transition: all 0.3s ease-in-out;
@@ -81,7 +81,7 @@ body {
     text-align: center; 
 }
 .log-side__nav-button{
-    font-size: 1.1rem;
+    font-size: 1rem;
     border: none;
     background: none;
     transition: all 0.3s ease-in-out;
@@ -98,28 +98,36 @@ body {
 .sign-side__form {
     display: flex;
     flex-direction: column;
-    margin-top: -1rem;
-    
+    align-items: center;
+    width: 100%;
 }
 .log-side__form{
     display: flex;
     flex-direction: column;
-    margin-top: -0.6rem;
+    align-items: center;
+    width: 100%;
+    margin-top: -1rem;
+}
+.log-side__form-content , .sign-side__form-content{
+    display: flex;
+    flex-direction: column;
 }
 .sign-side__form-title {
-    font-size: 1.7rem;
-    margin-top: 4rem;
+    font-size: 1.3rem;
+    margin-top: 3rem;
     color: rgb(241, 216, 255);
 }
 .log-side__form-title{
-    font-size: 1.7rem;
+    font-size: 1.3rem;
     color: rgb(241, 216, 255);
-    margin-top: 2.5rem;
+    margin-top: 2rem;
 }
 .sign-side__form-input , .log-side__form-input{
-    height: 2.6rem;
+    height: 4vh;
+    min-height: 20px;
     border: none;
-    width: 22rem;
+    width: 14vw;
+    min-width: 120px;
     border-radius: 2rem;
     outline: none;
     transition: all 0.6s ease-in-out;
@@ -133,28 +141,30 @@ body {
     box-shadow: -3px 3px 10px rgb(209, 59, 223);
     transform: translateX(8px);
 }
+.log-side__form-btnCont , .sign-side__form-btnCont{
+    display: flex;
+    justify-content: center;
+}
 .sign-side__form-button {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: rgb(255, 255, 255);
-    margin-top: 5rem;
+    margin-top: 4rem;
     width: 10rem;
     height: 3rem;
     border-radius: 10px;
     border: none;
-    margin-left: 6.5rem;
     background: linear-gradient(45deg, #561a81, #af60ff);
     position: relative;
     transition: all 0.4s ease-in-out;
 }
 .log-side__form-button{
-    font-size: 1.2rem;
-    margin-top: 3rem;
+    font-size: 1.1rem;
+    margin-top: 2.5rem;
     color: rgb(255, 255, 255);
     width: 10rem;
     height: 3rem;
     border-radius: 10px;
     border: none;
-    margin-left: 6.5rem;
     background: linear-gradient(45deg, #561a81, #af60ff);
     position: relative;
     transition: all 0.3s ease-in-out;
@@ -179,19 +189,14 @@ body {
 .nav_buttons:hover{
     transform: scale(1.35);
 }
-
-
-
-
-
-
-
 /* Valid */
 .log-side__form-emailError{
+    font-size: 0.85rem;
     color: tomato;
     margin: 0.4rem 0 -0.5rem 0.2rem;
 }
 .sign-side__apiError{
+    font-size: 0.85rem;
     color: tomato;
     margin: -5px 0 0 0;
 }
@@ -199,3 +204,28 @@ body {
 
 
 
+
+
+
+
+
+
+
+@media (min-width: 1024px) {
+    .sign-side__form-input , .log-side__form-input{
+
+    }
+
+
+}
+
+
+
+
+@media (min-width: 320px) and (max-width: 479px) {
+    .sign-side__form-input , .log-side__form-input{
+
+    }
+
+
+}
