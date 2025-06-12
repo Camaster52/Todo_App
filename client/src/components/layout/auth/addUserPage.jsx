@@ -16,7 +16,7 @@ const AddUserPage = ({setIsLoggedIn}) => {
 
     return (
         <div className="sign-container">
-        {/* <CursorHighlight/> */}
+        <CursorHighlight/>
         <motion.div 
             className="sign-3Danimate" 
             style={{ perspective: "1000px" }}

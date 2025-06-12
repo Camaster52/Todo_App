@@ -520,6 +520,44 @@
         font-size: 0.7rem;
     }
 
+
+    /* feedback */
+    .modal__closeModal{
+        width: 2rem;
+        height: 2rem;
+        font-size: 3rem;
+        margin-right: 0rem;
+    }
+    .modal__title{
+        margin-top: 0;
+        font-size: 1.8rem;
+    }
+    .modal__form-nameTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .modal__form-nameInput{
+        width: 50%;
+        height: 1.3rem;
+    }
+    .modal__form-problemTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    .modal__form-problemInput{
+        width: 100%;
+        height: 8rem;
+    }
+    .modal__form-submit{
+        padding: 3.2rem;
+    }
+    .modal__form-submitBtn{
+        font-size: 1rem;
+        width: 10vw;
+        height: 2.3rem;
+    }
+
 }
 
 
@@ -611,6 +649,44 @@
     }
     .footer__support{
         font-size: 0.85rem;
+    }
+
+
+        /* feedback */
+    .modal__closeModal{
+        width: 2rem;
+        height: 2rem;
+        font-size: 3rem;
+        margin-right: 0rem;
+    }
+    .modal__title{
+        margin-top: 0;
+        font-size: 1.8rem;
+    }
+    .modal__form-nameTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .modal__form-nameInput{
+        width: 50%;
+        height: 1.3rem;
+    }
+    .modal__form-problemTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    .modal__form-problemInput{
+        width: 100%;
+        height: 8rem;
+    }
+    .modal__form-submit{
+        padding: 3.2rem;
+    }
+    .modal__form-submitBtn{
+        font-size: 1rem;
+        width: 10vw;
+        height: 2.3rem;
     }
 
 }
@@ -706,6 +782,45 @@
         font-size: 0.8rem;
     }
 
+
+
+        /* feedback */
+    .modal__closeModal{
+        width: 2rem;
+        height: 2rem;
+        font-size: 3rem;
+        margin-right: 0rem;
+    }
+    .modal__title{
+        margin-top: 0;
+        font-size: 1.8rem;
+    }
+    .modal__form-nameTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .modal__form-nameInput{
+        width: 50%;
+        height: 1.3rem;
+    }
+    .modal__form-problemTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    .modal__form-problemInput{
+        width: 100%;
+        height: 8rem;
+    }
+    .modal__form-submit{
+        padding: 3.2rem;
+    }
+    .modal__form-submitBtn{
+        font-size: 1rem;
+        width: 10vw;
+        height: 2.3rem;
+    }
+
 }
 
 
@@ -796,6 +911,45 @@
     }
     .footer__support{
         font-size: 0.7rem;
+    }
+
+
+
+        /* feedback */
+    .modal__closeModal{
+        width: 2rem;
+        height: 2rem;
+        font-size: 3rem;
+        margin-right: 0rem;
+    }
+    .modal__title{
+        margin-top: 0;
+        font-size: 1.8rem;
+    }
+    .modal__form-nameTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .modal__form-nameInput{
+        width: 50%;
+        height: 1.3rem;
+    }
+    .modal__form-problemTitle{
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        margin-top: 2rem;
+    }
+    .modal__form-problemInput{
+        width: 100%;
+        height: 8rem;
+    }
+    .modal__form-submit{
+        padding: 3.2rem;
+    }
+    .modal__form-submitBtn{
+        font-size: 1rem;
+        width: 10vw;
+        height: 2.3rem;
     }
 
 }
