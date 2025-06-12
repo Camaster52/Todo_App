@@ -71,6 +71,7 @@ const Login = ({setIsLoggedIn}) => {
                             value === watchPassword || "Passwords do not match"
                     })}/>
                     {errors.repeatPassword && <p className="log-side__form-emailError">{errors.repeatPassword.message}</p>}
+                    
                     <div className="log-side__form-btnCont">
                         <button className="log-side__form-button" type="submit">Login</button>
                     </div>

@@ -10,13 +10,13 @@ const Btn = ({ activeTab, setActiveTab }) => {
   return (
     <div style={{
       position: 'relative',
-      width: '100%',
+      width: '80%',
       display: 'flex',
       justifyContent: 'center'
     }}>
       <div style={{
         position: 'relative',
-        width: '100%',
+        width: '80%',
         maxWidth: '300px'
       }}>
         <div style={{
@@ -32,7 +32,6 @@ const Btn = ({ activeTab, setActiveTab }) => {
                 background: 'none',
                 border: 'none',
                 color: activeTab === tab.id ? '#7F00FF' : '#ffffff',
-                fontSize: '1.1rem',
                 padding: '10px',
                 flex: 1,
                 textAlign: 'center',

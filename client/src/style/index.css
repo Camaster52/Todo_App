@@ -6,17 +6,18 @@
     align-items: center;
     margin-top: -1rem;
     width: 100%;
-    height: 7rem;
+    height: 13vh;
+    min-height: 100px;
     background-color: #200817;
-}
-.header__svgButton-menu{
-    width: 4rem;
-    height: 4rem;
 }
 .header__title{
     margin-top: 3rem;
     color: rgb(255, 255, 255);
     font-size: 3rem;
+}
+.header__svgButton-menu{
+    width: 4rem;
+    height: 4rem;
 }
 .header__svgButton-exit{
     width: 3rem;
@@ -81,8 +82,9 @@
     background: none;
     margin-right: 0rem;
     transition: all 0.3s ease-in-out;
-    margin-left: 18vw;
+    margin-left: 17.5vw;
     margin-top: 1rem;
+
 }
 .header__closeTasks:hover{
     color:rgb(168, 59, 8);
@@ -177,14 +179,14 @@
     flex-direction: column;
     gap: 0.3rem;
 }
-.footer__copyright-name{
-    color: rgb(255, 196, 196);
-    text-decoration: underline;
-}
 .line{
     width: 100%;
     border: solid 0.1px rgb(121, 121, 121);
     opacity: 0.7;
+}
+.footer__copyright-name{
+    color: rgb(255, 196, 196);
+    text-decoration: underline;
 }
 .footer__copyright{
     margin-bottom: 0.5rem;
@@ -384,13 +386,13 @@
 .addTask__input{
     width: 50vw;
     margin-left: 25vw;
-    height: 4vw;
+    height: 10vh;
     resize: none;
     border-radius: 0.7rem;
     outline: none;
 }
 .addTask__input:focus{
- border: solid 1.5px rgb(255, 145, 0);
+    border: solid 1.5px rgb(255, 145, 0);
 }
 .addTask__actionButtons{
     display: flex;
@@ -442,3 +444,358 @@
 
 
 
+
+
+
+
+
+
+/* adaptive */
+@media (min-width: 1024px) and (max-width: 1440px) {
+
+    .addTask-title{
+        width: 8.5rem;
+        height: 3rem;
+        border: none;
+        font-size: 1.45rem;
+        margin-left: 25vw;
+        margin-top: 2vw;
+        margin-bottom: 1.8rem;
+    }
+    .error-style{
+        opacity: 0.5;
+        font-size: 1.3rem;
+        width: 6.2rem;
+        height: 2rem;
+    }
+    .addTask__actionButtons-add{
+        font-size: 1.3rem;
+        width: 6.2rem;
+        height: 2rem;
+    }
+    .addTask__actionButtons-cancel{
+        font-size: 1.3rem;
+        width: 6.2rem;
+        height: 2rem;
+    }
+    .addTask__input{
+        width: 50vw;
+        margin-left: 25vw;
+        height: 10vh;
+        resize: none;
+        border-radius: 0.7rem;
+        outline: none;
+    }
+    .header__title{
+        margin-top: 3rem;
+        color: rgb(255, 255, 255);
+        font-size: 2.8rem;
+    }
+    .header__svgButton-menu{
+        width: 3.8rem;
+        height: 3.8rem;
+    }
+    .header__svgButton-exit{
+        width: 2.8rem;
+        height: 2.8rem;
+    }
+
+    /* window */
+    .header__tasks-id{
+        color: white;
+        margin-bottom: -1vw;
+    }
+    .header__tasks-text{
+        font-size: 1rem;
+    }
+    .header__closeTasks{
+        width: 2rem;
+        height: 2rem;
+        font-size: 3.7rem;
+        margin-left: 18vw;
+        margin-top: 1rem;
+        margin-left: 16.5vw;
+    }
+    .header__tasks-delete{
+        font-size: 0.7rem;
+    }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .addTask-title{
+        width: 7rem;
+        height: 2.5rem;
+        border: none;
+        font-size: 1.2rem;
+        margin-left: 25vw;
+        margin-top: 2vw;
+        margin-bottom: 1rem;
+    }
+    .error-style{
+        opacity: 0.5;
+        font-size: 1.2rem;
+        width: 5.8rem;
+        height: 1.8rem;
+    }
+    .addTask__actionButtons-add{
+        font-size: 1.2rem;
+        width: 5.8rem;
+        height: 1.8rem;
+    }
+    .addTask__actionButtons-cancel{
+        font-size: 1.2rem;
+        width: 5.8rem;
+        height: 1.8rem;
+    }
+    .addTask__input{
+        width: 50vw;
+        margin-left: 25vw;
+        height: 10vh;
+        resize: none;
+        border-radius: 0.7rem;
+        outline: none;
+    }
+    .header__title{
+        margin-top: 3rem;
+        color: rgb(255, 255, 255);
+        font-size: 2.55rem;
+    }
+    .header__svgButton-menu{
+        width: 3.3rem;
+        height: 3.3rem;
+    }
+    .header__svgButton-exit{
+        width: 2.45rem;
+        height: 2.45rem;
+    }
+
+    /* window */
+    .header__tasks-id{
+        font-size: 0.8rem;
+        margin-bottom: -1vw;
+    }
+    .header__tasks-text{
+        font-size: 0.8rem;
+    }
+    .header__closeTasks{
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 2.7rem;
+        margin-left: 16.5vw;
+        margin-top: 0.8rem;
+
+    }
+    .header__openTasksContTitle-title{
+        font-size: 1.4rem;
+        letter-spacing: 0.2rem;
+    }
+    .header__tasks-delete{
+        width: 5.5vw;
+        font-size: 0.7rem;
+    }
+
+    .footer__copyright-name{
+        font-size: 0.85rem;
+        text-decoration: underline;
+    }
+    .footer__copyright{
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+    .footer__myGitHub{
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+    }
+    .footer__support{
+        font-size: 0.85rem;
+    }
+
+}
+
+
+@media (min-width: 480px) and (max-width: 767px) {
+
+    .addTask-title{
+        width: 5rem;
+        height: 2rem;
+        border: none;
+        font-size: 0.9rem;
+        margin-left: 25vw;
+        margin-top: 2vw;
+        margin-bottom: 1rem;
+    }
+    .error-style{
+        opacity: 0.5;
+        font-size: 1rem;
+        width: 4.5rem;
+        height: 1.5rem;
+    }
+    .addTask__actionButtons-add{
+        font-size: 1rem;
+        width: 4.5rem;
+        height: 1.5rem;
+    }
+    .addTask__actionButtons-cancel{
+        font-size: 1rem;
+        width: 4.5rem;
+        height: 1.5rem;
+        margin-left: -0.8rem;
+    }
+    .addTask__input{
+        width: 50vw;
+        margin-left: 25vw;
+        height: 10vh;
+        resize: none;
+        border-radius: 0.7rem;
+        outline: none;
+    }
+    .header__title{
+        margin-top: 3rem;
+        color: rgb(255, 255, 255);
+        font-size: 2.3rem;
+    }
+    .header__svgButton-menu{
+        width: 3rem;
+        height: 3rem;
+    }
+    .header__svgButton-exit{
+        width: 2rem;
+        height: 2rem;
+    }
+
+    /* window */
+    .header__tasks-id{
+        font-size: 0.7rem;
+        margin-bottom: -1vw;
+    }
+    .header__tasks-text{
+        font-size: 0.6rem;
+    }
+    .header__closeTasks{
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 2.3rem;
+        margin-left: 15vw;
+    }
+    .header__openTasksContTitle-title{
+        font-size: 1.1rem;
+        letter-spacing: 0.2rem;
+    }
+    .header__tasks-delete{
+        width: 6.5vw;
+        font-size: 0.5rem;
+    }
+
+
+    .footer__copyright-name{
+        font-size: 0.8rem;
+        text-decoration: underline;
+    }
+    .footer__copyright{
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+    .footer__myGitHub{
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+    .footer__support{
+        font-size: 0.8rem;
+    }
+
+}
+
+
+@media (min-width: 360px) and (max-width: 479px) {
+
+    .addTask-title{
+        width: 4.5rem;
+        height: 1.7rem;
+        border: none;
+        font-size: 0.7rem;
+        margin-left: 25vw;
+        margin-top: 2vw;
+        margin-bottom: 1rem;
+    }
+    .error-style{
+        opacity: 0.5;
+        font-size: 0.8rem;
+        width: 3.5rem;
+        height: 1.3rem;
+    }
+    .addTask__actionButtons-add{
+        font-size: 0.8rem;
+        width: 3.5rem;
+        height: 1.3rem;
+    }
+    .addTask__actionButtons-cancel{
+        font-size: 0.8rem;
+        width: 3.5rem;
+        height: 1.3rem;
+        margin-left: -0.8rem;
+    }
+    .addTask__input{
+        width: 50vw;
+        margin-left: 25vw;
+        height: 10vh;
+        resize: none;
+        border-radius: 0.7rem;
+        outline: none;
+    }
+    .header__title{
+        margin-top: 2rem;
+        font-size: 1.8rem;
+    }
+    .header__svgButton-menu{
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+    .header__svgButton-exit{
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+
+    /* window */
+    .header__tasks-id{
+        font-size: 0.7rem;
+        margin-bottom: -1vw;
+    }
+    .header__tasks-text{
+        font-size: 0.6rem;
+    }
+    .header__closeTasks{
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 2.3rem;
+        margin-left: 15vw;
+    }
+    .header__openTasksContTitle-title{
+        font-size: 1.1rem;
+        letter-spacing: 0.2rem;
+    }
+    .header__tasks-delete{
+        width: 8vw;
+        font-size: 0.4rem;
+    }
+
+    /* footer */
+    .footer__copyright-name{
+        font-size: 0.7rem;
+        text-decoration: underline;
+    }
+    .footer__copyright{
+        font-size: 0.7rem;
+        margin-bottom: 0.5rem;
+    }
+    .footer__myGitHub{
+        font-size: 0.7rem;
+        margin-bottom: 1.5rem;
+    }
+    .footer__support{
+        font-size: 0.7rem;
+    }
+
+}

@@ -60,7 +60,7 @@ const Footer = () => {
                 Feedback
             </button>
         )}
-    ];
+    ]
 
     const footerItemsAnimation = {
         hidden: {

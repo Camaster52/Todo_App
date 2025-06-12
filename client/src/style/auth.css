@@ -124,15 +124,19 @@ body {
 }
 .sign-side__form-input , .log-side__form-input{
     height: 4vh;
-    min-height: 20px;
+    min-height: 15px;
+    max-height: 40px;
     border: none;
     width: 14vw;
-    min-width: 120px;
+    min-width: 140px;
     border-radius: 2rem;
     outline: none;
     transition: all 0.6s ease-in-out;
     margin-top: 0.4rem;
 }
+
+
+
 .sign-side__form-input:hover , .log-side__form-input:hover{
     box-shadow: -3px 3px 10px rgb(209, 59, 223);
     cursor: pointer;
@@ -200,32 +204,238 @@ body {
     color: tomato;
     margin: -5px 0 0 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-@media (min-width: 1024px) {
-    .sign-side__form-input , .log-side__form-input{
-
-    }
-
-
+.nav_buttons{
+    font-size: 1rem;
 }
 
 
 
 
-@media (min-width: 320px) and (max-width: 479px) {
-    .sign-side__form-input , .log-side__form-input{
 
+
+
+
+
+
+
+/* adaptive */
+@media (min-width: 1024px) and (max-width: 1440px) {
+
+    .sign-side , .log-side{
+        max-height: 550px;
+    }
+    .sign-side__form-button:hover , .log-side__form-button:hover{
+    box-shadow: 0 0 18px #2c24c2, 0 0 15px #787fb9;
+    transform: scale(1.1);
+    cursor: pointer;
+    }
+    .sign-side__form-button:active , .log-side__form-button:active{
+        transform: scale(0.9);
+        box-shadow: 0 0 7px #4f46e5, 0 0 7px #818cf8;
+    }
+    /* reg/log btn */
+    .sign-side__form-button {
+        font-size: 0.8rem;
+        margin-top: 2.8rem;
+        color: rgb(255, 255, 255);
+        width: 8rem;
+        height: 1.8rem;
+    }
+    .log-side__form-button{
+        font-size: 0.8rem;
+        margin-top: 2.2rem;
+        color: rgb(255, 255, 255);
+        width: 8rem;
+        height: 1.8rem;
     }
 
+    .log-side__form-emailError , .sign-side__apiError{
+        font-size: 0.7rem;
+    }
+    
+    .sign-side__title-text {
+        font-size: 1.7rem;
+        margin-bottom: 0.5rem;
+    }
+    .log-side__title-text{
+        font-size: 1.7rem;
+    }
+
+    .sign-side__form-title {
+        font-size: 1.15rem;
+        margin-top: 2.5rem;
+    }   
+    .log-side__form-title{
+        font-size: 1.15rem;
+        margin-top: 1.5rem;
+    }
+
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+    .nav_buttons{
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .sign-side , .log-side{
+        max-height: 540px;
+    }
+    .sign-side__form-button:hover , .log-side__form-button:hover{
+    box-shadow: 0 0 18px #2c24c2, 0 0 15px #787fb9;
+    transform: scale(1.1);
+    cursor: pointer;
+    }
+    .sign-side__form-button:active , .log-side__form-button:active{
+        transform: scale(0.9);
+        box-shadow: 0 0 7px #4f46e5, 0 0 7px #818cf8;
+    }
+    /* reg/log btn */
+    .sign-side__form-button {
+        font-size: 0.7rem;
+        margin-top: 2.8rem;
+        width: 6.5rem;
+        height: 1.7rem;
+    }
+    .log-side__form-button{
+        font-size: 0.7rem;
+        margin-top: 2.8rem;
+        width: 6.5rem;
+        height: 1.7rem;
+    }
+
+    .log-side__form-emailError , .sign-side__apiError{
+        font-size: 0.57rem;
+    }
+    
+    .sign-side__title-text {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .log-side__title-text{
+        font-size: 1.5rem;
+    }
+
+    .sign-side__form-title {
+        font-size: 1rem;
+        margin-top: 2.2rem;
+    }   
+    .log-side__form-title{
+        font-size: 1rem;
+        margin-top: 1.3rem;
+    }
+    .nav_buttons{
+        font-size: 0.8rem;
+    }
+
+}
+
+
+
+@media (min-width: 480px) and (max-width: 767px) {
+    .sign-side , .log-side{
+        max-height: 540px;
+    }
+    .sign-side__form-button:hover , .log-side__form-button:hover{
+    box-shadow: 0 0 18px #2c24c2, 0 0 15px #787fb9;
+    transform: scale(1.1);
+    cursor: pointer;
+    }
+    .sign-side__form-button:active , .log-side__form-button:active{
+        transform: scale(0.9);
+        box-shadow: 0 0 7px #4f46e5, 0 0 7px #818cf8;
+    }
+    /* reg/log btn */
+    .sign-side__form-button {
+        font-size: 0.7rem;
+        margin-top: 2.8rem;
+        width: 6.5rem;
+        height: 1.7rem;
+    }
+    .log-side__form-button{
+        font-size: 0.7rem;
+        margin-top: 2.8rem;
+        width: 6.5rem;
+        height: 1.7rem;
+    }
+
+    .log-side__form-emailError , .sign-side__apiError{
+        font-size: 0.57rem;
+    }
+    
+    .sign-side__title-text {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .log-side__title-text{
+        font-size: 1.5rem;
+    }
+
+    .sign-side__form-title {
+        font-size: 1rem;
+        margin-top: 2.2rem;
+    }   
+    .log-side__form-title{
+        font-size: 1rem;
+        margin-top: 1.3rem;
+    }
+    .nav_buttons{
+        font-size: 0.8rem;
+    }
+}
+
+
+@media (min-width: 360px) and (max-width: 479px) {
+    .sign-side__form-button:hover , .log-side__form-button:hover{
+    box-shadow: 0 0 12px #2c24c2, 0 0 10px #787fb9;
+    }
+    .sign-side__form-button:active , .log-side__form-button:active{
+        box-shadow: 0 0 4px #4f46e5, 0 0 4px #818cf8;
+    }
+    /* reg/log btn */
+    .sign-side__form-button {
+        font-size: 0.5rem;
+        margin-top: 1.5rem;
+        color: rgb(255, 255, 255);
+        width: 6rem;
+        height: 1.5rem;
+    }
+    .log-side__form-button{
+        font-size: 0.5rem;
+        margin-top: 1.5rem;
+        color: rgb(255, 255, 255);
+        width: 6rem;
+        height: 1.5rem;
+    }
+
+    .log-side__form-emailError , .sign-side__apiError{
+        font-size: 0.5rem;
+    }
+    
+    .sign-side__title-text {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+    .log-side__title-text{
+        font-size: 1.3rem;
+    }
+
+    .sign-side__form-title {
+        font-size: 0.8rem;
+        margin-top: 2rem;
+    }   
+    .log-side__form-title{
+        font-size: 0.8rem;
+        margin-top: 1.5rem;
+    }
+    .nav_buttons{
+        font-size: 0.8rem;
+    }
 
 }
