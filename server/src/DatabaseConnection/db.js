@@ -1,14 +1,16 @@
+// require("dotenv").config({ path: '../.env' })
 const { Pool } = require("pg")
-require("dotenv").config();
 
+// убрал .env поскольку были проблемы при деплое с докером, поэтому пришлось писать все сдесь((
 const pool = new Pool({
-    host: process.env.HOST,
-    port: process.env.DB_PORT,
-    user: process.env.USER,
-    database: process.env.DATABASE,
-    password: process.env.PASSWORD,
+    host: "localhost",
+    port: 5432,
+    user: "todolist",
+    database: "todo_app",
+    password: "Excelsior2008",
     idleTimeoutMillis: 20000,
-    max:10
+    max:10,
+    connectionTimeoutMillis: 5000
 })
 
 const checkDataBaseConnection = async () => {

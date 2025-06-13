@@ -1,7 +1,7 @@
+require("dotenv").config({ path: '../.env' })
 const { pool } = require("../DatabaseConnection/db.js")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-require("dotenv").config()
 
 class UserService {
 
