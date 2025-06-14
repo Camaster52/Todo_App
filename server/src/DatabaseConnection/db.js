@@ -1,16 +1,16 @@
-require("dotenv").config({ path: '../.env' })
+require("dotenv").config({ path: require('path').join(__dirname, '../../.env') })
 const { Pool } = require("pg")
 
 // убрал .env поскольку были проблемы при деплое с докером, поэтому пришлось писать все сдесь((
 const pool = new Pool({
-    host: process.env.HOST,
+    host: process.env.DB_HOST,
     port: process.env.DB_PORT,
-    user: process.env.USER,
-    password: process.env.PASSWORD,
-    database: process.env.DATABASE,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     idleTimeoutMillis: 20000,
     max: 10,
-    connectionTimeoutMillis: 5000
+    connectionTimeoutMillis: 5000,
 })
 
 const checkDataBaseConnection = async () => {

@@ -1,4 +1,4 @@
-require("dotenv").config({ path: '../.env' })
+require("dotenv").config({ path: __dirname + '/../../.env' })
 const { pool } = require("../DatabaseConnection/db.js")
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")

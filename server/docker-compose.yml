@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - pgdata:/var/lib/postgresql/data  
+      - pgdata:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U todolist -d todo_app"]
       interval: 5s
@@ -20,13 +20,16 @@ services:
   backend:
     build: .
     environment:
-      DB_HOST: postgres
-      DB_PORT: 5432
-      DB_USER: todolist
-      DB_PASSWORD: Excelsior2008
-      DB_NAME: todo_app
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=todolist
+      - DB_PASSWORD=Excelsior2008
+      - DB_NAME=todo_app
     ports:
       - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
 
 volumes:
   pgdata:
