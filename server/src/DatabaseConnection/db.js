@@ -1,4 +1,4 @@
-require("dotenv").config({ path: '../.env' })
+// require("dotenv").config({ path: '../.env' })
 const { Pool } = require("pg")
 
 // убрал .env поскольку были проблемы при деплое с докером, поэтому пришлось писать все сдесь((
