@@ -1,15 +1,15 @@
-// require("dotenv").config({ path: '../.env' })
+require("dotenv").config({ path: '../.env' })
 const { Pool } = require("pg")
 
 // убрал .env поскольку были проблемы при деплое с докером, поэтому пришлось писать все сдесь((
 const pool = new Pool({
-    host: "localhost",
+    host: 'postgres',
     port: 5432,
-    user: "todolist",
-    database: "todo_app",
-    password: "Excelsior2008",
+    user: 'todolist',
+    password: 'Excelsior2008',
+    database: 'todo_app',
     idleTimeoutMillis: 20000,
-    max:10,
+    max: 10,
     connectionTimeoutMillis: 5000
 })
 
