@@ -1,4 +1,2 @@
 node_modules/
-.env
-*.env
-.env*
+client/src/.env

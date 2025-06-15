@@ -2,9 +2,10 @@ import React from "react";
 
 
 const SignupApi = async (userData) => {
+    const apiUrl = process.env.REACT_APP_API_URL
     try{
         console.log("Sending data:", userData)
-        const response = await fetch("http://localhost:8080/api/signup" , {
+        const response = await fetch(`${apiUrl}/api/signup` , {
             method: "POST", 
             headers: { "Content-Type" : "application/json" },
             body: JSON.stringify(userData),

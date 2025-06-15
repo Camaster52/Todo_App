@@ -19,12 +19,13 @@ const Index = ({ setIsLoggedIn }) => {
     const handleAddTask = async (taskText) => {
         if (!taskText.trim()) return
         const userID = localStorage.getItem("userID")
+        const apiUrl = process.env.REACT_APP_API_URL
         if (!userID) {
             console.error("User ID not found in localStorage");
             return 
         }
         try{
-            const response = await fetch("http://localhost:8080/api/createTask" , {
+            const response = await fetch(`${apiUrl}/api/createTask` , {
                 method: "POST" , 
                 headers: { 'Content-Type': 'application/json' } , 
                 body: JSON.stringify( { text: taskText , userID: userID } )
@@ -52,8 +53,9 @@ const Index = ({ setIsLoggedIn }) => {
     
     const deleteTask = async (text) => {
         const userID = localStorage.getItem("userID")
+        const apiUrl = process.env.REACT_APP_API_URL
         try{
-            const response = await fetch("http://localhost:8080/api/deleteTask" , {
+            const response = await fetch(`${apiUrl}/api/deleteTask` , {
                 method: "POST" , 
                 headers: { 'Content-Type': 'application/json' } , 
                 body: JSON.stringify( { text: text , userID: userID } )
@@ -75,12 +77,13 @@ const Index = ({ setIsLoggedIn }) => {
 
     const fetchTasks = async () => {
         const userID = localStorage.getItem("userID")
+        const apiUrl = process.env.REACT_APP_API_URL
         if (!userID) {
             console.error("User ID not found")
             return
         }
         try {
-            const response = await fetch(`http://localhost:8080/api/getTasks?userID=${userID}`)
+            const response = await fetch(`${apiUrl}/api/getTasks?userID=${userID}`)
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`)
             }

@@ -9,9 +9,10 @@ const Router = () => {
 
 
     useEffect(() => {
-        const checkJWT = async (JWT) => {
+        const checkJWT = async () => {
+            const apiUrl = process.env.REACT_APP_API_URL
             try{
-                const response = await fetch("http://localhost:8080/api/checkJWT" , {
+                const response = await fetch(`${apiUrl}/api/checkJWT` , {
                     method: "GET",
                     credentials: "include"
                 })

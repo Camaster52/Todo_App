@@ -1,8 +1,9 @@
 
 const LogOut = async () => {
     localStorage.clear()
+    const apiUrl = process.env.REACT_APP_API_URL
     try{
-        const response = await fetch("http://localhost:8080/api/logout" , {
+        const response = await fetch(`${apiUrl}/api/logout` , {
             method: "POST" , 
             headers: { "Content-Type" : "application/json" },
             credentials: "include"
