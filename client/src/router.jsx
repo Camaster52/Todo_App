@@ -9,6 +9,7 @@ const Router = () => {
 
 
     useEffect(() => {
+        console.log(process.env.REACT_APP_API_URL)
         const checkJWT = async () => {
             const apiUrl = process.env.REACT_APP_API_URL
             try{
